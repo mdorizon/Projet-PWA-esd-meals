@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
     paddingTop: 96,
     paddingLeft: 16,
     paddingRight: 16,
-    paddingBottom: 64,
     gap: 48,
     flexDirection: 'column',
     backgroundColor: "#FFFFFF"
@@ -45,9 +44,10 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     margin: 12,
-    borderWidth: 1,
+    borderWidth: 2,
+    borderRadius: 12,
+    borderColor: '#ff5478',
     padding: 10,
-    
   },
   mealsListContainer: {
     display: 'flex',
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
   mealsList: {
     width: '100%',
-    paddingBottom: 64,
+    paddingBottom: 60,
   },
   mealCard: {
     backgroundColor: "#ff5478",

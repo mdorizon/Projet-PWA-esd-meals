@@ -61,7 +61,7 @@ export default function Index() {
               onChangeText={onChangeText}
               value={text}
               style={styles.input}
-              placeholderTextColor="#000" 
+              placeholderTextColor="#2B2C28" 
               placeholder="Nom de la recette"
             />
             <TouchableOpacity onPress={handleSearch}>

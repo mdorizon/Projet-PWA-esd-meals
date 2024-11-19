@@ -1,7 +1,7 @@
 import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import styles from "../../style";
 import Navbar from "../../../components/navbar";
-import { useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 
 export default function Index() {
@@ -19,6 +19,10 @@ export default function Index() {
       setMeals(meals.meals)
     })()
   }, [])
+
+  const handleNavigateToSingleMeal = (id: string) => {
+    router.push(`meals/${id}`)
+  }
 
   return (
     <>

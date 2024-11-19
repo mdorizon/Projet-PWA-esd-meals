@@ -1,7 +1,7 @@
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import styles from "./style";
-import Navbar from "./components/navbar";
-import { router } from "expo-router";
+import { Image, ScrollView, Text, View } from "react-native";
+import styles from "../style";
+import Navbar from "../components/navbar";
+import { useLocalSearchParams } from "expo-router";
 
 export default function Index() {
 
@@ -50,35 +50,18 @@ export default function Index() {
     },
   ];
 
-  const handleNavigateToSingleMeal = (id: Number) => {
-    router.push(`MealsList/${id}`)
-  }
+  const local = useLocalSearchParams()
+  const meal = meals.find(meal => meal.id == parseInt(local.id))
 
   return (
     <>
       <ScrollView style={styles.page}>
-        {/* Header */}
         <View style={styles.header}>
-          <Image source={require('../assets/images/esd-meals.png')} style={styles.logo}/>
-          <Text style={styles.h1}>Toque App</Text>
-          <Text style={styles.p}>Mettez la toque à vos plats !</Text>
-        </View>
-        {/* sections */}
-        <View style={styles.container}>
-          {/* cards */}
-          <Text style={styles.h3}>Des recettes variées, des guides simples, et des idées adaptées à vos goûts. Cuisinez comme un chef en quelques clics !</Text>
-          <View style={styles.mealsContainer}>
-            <Text style={styles.h2}>Les trois dernières recettes :</Text>
-            {meals.slice(-3).map((meal, index) => (
-              <TouchableOpacity key={index} style={styles.mealCard} onPress={() => handleNavigateToSingleMeal(meal.id)}>
-                <Image source={{ uri: meal.image }} style={styles.mealImage} />
-                <Text style={styles.mealText}>{meal.title}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-          {/* footer */}
-          <View style={styles.footer}>
-            <Text style={styles.h3}>copyright Toque App 2023-2024</Text>
+          <Text style={styles.h1}>{meal?.title}</Text>
+          <Image source={{ uri: meal?.image }} style={styles.singleMealImage}/>
+          <View style={styles.singleMealContent}>
+            <Text style={styles.p}>Catégorie : { meal?.category }</Text>
+            <Text style={styles.h3}>{ meal?.description }</Text>
           </View>
         </View>
       </ScrollView>

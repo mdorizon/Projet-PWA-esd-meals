@@ -5,7 +5,8 @@ import { router } from "expo-router";
 export default function Navbar() {
 
   const handleNavigateToHome = () => {
-    router.push(`/`)
+    // retire tout les screens actif du router pour retourner à la page d'accueil en 'nettoyant' le router
+    router.dismissAll()
   }
   
   const handleNavigateToMealsList = () => {

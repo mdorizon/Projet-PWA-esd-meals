@@ -42,10 +42,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 22
   },
+  mealsListContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 22,
+  },
+  mealsList: {
+    width: '100%',
+    paddingBottom: 64,
+  },
   mealCard: {
     backgroundColor: "#ff5478",
     borderRadius: 16,
     overflow: 'hidden',
+    alignSelf: 'center',
     width: '75%',
   },
   mealImage: {

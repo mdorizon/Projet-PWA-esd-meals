@@ -1,5 +1,5 @@
 import { Text, TouchableOpacity, View } from "react-native";
-import styles from "../../style";
+import styles from "../../app/style";
 import { router } from "expo-router";
 
 export default function Navbar() {
@@ -10,7 +10,7 @@ export default function Navbar() {
   }
   
   const handleNavigateToMealsList = () => {
-    router.push(`MealsList`)
+    router.push(`meals`)
   }
 
   return (

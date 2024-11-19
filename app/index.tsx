@@ -1,12 +1,14 @@
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import styles from "./style";
-import Navbar from "./components/navbar";
+import Navbar from "../components/navbar";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
 
 export default function Index() {
   // on déclare le state permettant de retenir nos recettes
   const [meals, setMeals] = useState([]);
+  // permet de récupérer la valeur de l'imput de recherche
+  const [text, onChangeText] = useState('');
 
   // on utilise un useEffect pour que la fonction se lance au chargement de l'app
   useEffect(() => {
@@ -23,7 +25,12 @@ export default function Index() {
 
   const handleNavigateToSingleMeal = (id: Number) => {
     // le router push ajoute la page donnée en haut de la liste des écrans "actifs" et donc l'affiche
-    router.push(`MealsList/${id}`)
+    router.push(`meals/${id}`)
+  }
+
+  const handleSearch = () => {
+    // est éxecuté lorsque le bouton du formulaire est tapé, redirige vers les résultats de recherche
+    router.push(`meals/search/${text}`)
   }
 
   return (
@@ -49,6 +56,19 @@ export default function Index() {
               </TouchableOpacity>
             ))}
           </View>
+          <View>
+            <TextInput
+              onChangeText={onChangeText}
+              value={text}
+              style={styles.input}
+              placeholderTextColor="#000" 
+              placeholder="Nom de la recette"
+            />
+            <TouchableOpacity onPress={handleSearch}>
+              <Text style={styles.h3}>Chercher</Text>
+            </TouchableOpacity>
+          </View>
+          
           {/* footer */}
           <View style={styles.footer}>
             <Text style={styles.h3}>copyright Toque App 2023-2024</Text>

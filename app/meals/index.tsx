@@ -1,6 +1,6 @@
 import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import styles from "../style";
-import Navbar from "../components/navbar";
+import Navbar from "../../components/navbar";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
 
@@ -18,7 +18,7 @@ export default function Index() {
   }, [])
 
   const handleNavigateToSingleMeal = (id: string) => {
-    router.push(`MealsList/${id}`)
+    router.push(`meals/${id}`)
   }
 
   return (

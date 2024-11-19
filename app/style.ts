@@ -42,6 +42,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 22
   },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    
+  },
   mealsListContainer: {
     display: 'flex',
     flexDirection: 'column',

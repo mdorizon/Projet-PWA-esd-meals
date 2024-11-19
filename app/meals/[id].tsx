@@ -1,6 +1,6 @@
 import { Image, ScrollView, Text, View } from "react-native";
 import styles from "../style";
-import Navbar from "../components/navbar";
+import Navbar from "../../components/navbar";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 

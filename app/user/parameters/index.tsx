@@ -1,8 +1,12 @@
-import { Text } from "react-native";
+import Navbar from "@/components/navbar";
+import { Text, View } from "react-native";
 
-export default function Index() {
+export default function UserParameters() {
 
   return (
-    <Text>parameters</Text>
+    <View>
+      <Text>parameters</Text>
+      <Navbar />
+    </View>
   );
 }

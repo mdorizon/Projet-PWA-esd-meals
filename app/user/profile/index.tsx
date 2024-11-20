@@ -1,8 +1,12 @@
-import { Text } from "react-native";
+import Navbar from "@/components/navbar";
+import { Text, View } from "react-native";
 
-export default function Index() {
+export default function UserProfile() {
 
   return (
-    <Text>user profile</Text>
+    <View>
+      <Text>user profile</Text>
+      <Navbar />
+    </View>
   );
 }

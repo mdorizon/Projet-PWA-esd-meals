@@ -12,7 +12,7 @@ export default function MealsLayout() {
   return (
     <Tabs>
       <Tabs.Screen 
-        name="random" 
+        name="random"
         options={{ 
           title: "Random Meal",
           tabBarIcon: ({ focused }) => <Ionicons name={focused ? 'dice' : 'dice-outline'} size={24} color={"#ff5478"}/>,

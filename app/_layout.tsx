@@ -20,6 +20,7 @@ export default function RootLayout() {
         options={{title: "Accueil", headerShown: false}}
         />
       <Stack.Screen name='meals' options={{headerShown: false}} />
+      <Stack.Screen name='user' options={{headerShown: false}} />
     </Stack>
   )
 }

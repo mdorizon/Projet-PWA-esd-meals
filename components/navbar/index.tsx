@@ -16,6 +16,10 @@ export default function Navbar() {
   const handleRandomMeal = () => {
     router.push(`meals/random/`)
   }
+  
+  const handleNavigateToUser = () => {
+    router.push(`user`)
+  }
 
   return (
     <View style={styles.navbar}>
@@ -27,6 +31,9 @@ export default function Navbar() {
       </TouchableOpacity>
       <TouchableOpacity style={styles.navitem} onPress={handleNavigateToMealsList}>
         <Text style={styles.navitem}>Liste Meals</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.navitem} onPress={handleNavigateToUser}>
+        <Text style={styles.navitem}>User</Text>
       </TouchableOpacity>
     </View>
   );

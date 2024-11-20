@@ -1,4 +1,4 @@
-import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 import styles from "@/style/style";
 import Navbar from "@/components/navbar";
 import { router } from "expo-router";

@@ -25,7 +25,7 @@ export default function Index() {
 
   const handleNavigateToSingleMeal = (id: Number) => {
     // le router push ajoute la page donnée en haut de la liste des écrans "actifs" et donc l'affiche
-    router.push(`meals/${id}`)
+    router.push(`meals/details/${id}`)
   }
 
   const handleSearch = () => {

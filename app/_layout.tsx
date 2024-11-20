@@ -19,9 +19,7 @@ export default function RootLayout() {
         // On défini ses options comme le titre, si le header est affiché ou non etc...
         options={{title: "Accueil", headerShown: false}}
         />
-      <Stack.Screen name="meals/index" options={{title: "Liste", headerShown: false}}/>
-      <Stack.Screen name="meals/[id]" options={{title: "Recette"}}/>
-      <Stack.Screen name="meals/search/[query]" options={{title: "Recette"}}/>
+      <Stack.Screen name='meals' options={{headerShown: false}} />
     </Stack>
   )
 }

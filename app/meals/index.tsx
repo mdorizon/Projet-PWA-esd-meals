@@ -18,7 +18,7 @@ export default function Index() {
   }, [])
 
   const handleNavigateToSingleMeal = (id: string) => {
-    router.push(`meals/${id}`)
+    router.push(`meals/details/${id}`)
   }
 
   return (

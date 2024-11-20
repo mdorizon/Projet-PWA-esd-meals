@@ -3,6 +3,8 @@ import styles from "@/style/style";
 import Navbar from "@/components/navbar";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
+import { GestureHandlerRootView, Swipeable } from "react-native-gesture-handler";
+import MealListItem from "@/components/meals/MealListItem";
 
 export default function Index() {
   const [meals, setMeals] = useState([]);
@@ -17,8 +19,14 @@ export default function Index() {
     })()
   }, [])
 
-  const handleNavigateToSingleMeal = (id: string) => {
-    router.push(`meals/details/${id}`)
+  const MealActions = () => {
+    return (
+      <View>
+        <TouchableOpacity>
+          <Text>supprimer</Text>
+        </TouchableOpacity>
+      </View>
+    )
   }
 
   return (
@@ -27,21 +35,16 @@ export default function Index() {
         {/* sections */}
         <View style={styles.container}>
           {/* cards */}
-          <View style={styles.mealsContainer}>
+          <GestureHandlerRootView style={styles.mealsContainer}>
             <Text style={styles.h2}>Listes de nos recettes :</Text>
             <FlatList 
               data={meals}
               style={styles.mealsList}
               contentContainerStyle={styles.mealsListContainer}
-              renderItem={({item}) => 
-                <TouchableOpacity style={styles.mealCard} onPress={() => handleNavigateToSingleMeal(item.idMeal)}>
-                  <Image source={{ uri: item.strMealThumb }} style={styles.mealImage} />
-                  <Text style={styles.mealText}>{item.strMeal}</Text>
-                </TouchableOpacity>
-              }
+              renderItem={({item}) => <MealListItem meal={item}/>}
               keyExtractor={item => item.idMeal}
             />
-          </View>
+          </GestureHandlerRootView>
         </View>
       </View>
       {/* Navbar */}

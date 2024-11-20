@@ -1,33 +1,12 @@
-import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import styles from "@/style/style";
 import Navbar from "@/components/navbar";
-import { router } from "expo-router";
-import { useEffect, useState } from "react";
-import { GestureHandlerRootView, Swipeable } from "react-native-gesture-handler";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import MealListItem from "@/components/meals/MealListItem";
+import useGetMeals from "@/hook/useGetMeals";
 
 export default function Index() {
-  const [meals, setMeals] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-
-      const response = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=');
-      const meals = await response.json()
-
-      setMeals(meals.meals)
-    })()
-  }, [])
-
-  const MealActions = () => {
-    return (
-      <View>
-        <TouchableOpacity>
-          <Text>supprimer</Text>
-        </TouchableOpacity>
-      </View>
-    )
-  }
+  const meals = useGetMeals();
 
   return (
     <>

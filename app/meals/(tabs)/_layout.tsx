@@ -25,7 +25,16 @@ export default function MealsLayout() {
           title: "List Meal",
           tabBarIcon: ({ focused }) => <Ionicons name={focused ? 'list' : 'list-outline'} size={24} color={"#ff5478"}/>,
           tabBarActiveTintColor: '#ff5478',
-          }} />
+          }} 
+      />
+      <Tabs.Screen 
+        name="create-meal" 
+        options={{ 
+          title: "Create Meal",
+          tabBarIcon: ({ focused }) => <Ionicons name={focused ? 'add-circle' : 'add-circle-outline'} size={24} color={"#ff5478"}/>,
+          tabBarActiveTintColor: '#ff5478',
+          }} 
+      />
     </Tabs>
   )
 }

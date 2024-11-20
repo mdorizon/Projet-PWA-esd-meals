@@ -13,10 +13,17 @@ export default function Navbar() {
     router.push(`meals`)
   }
 
+  const handleRandomMeal = () => {
+    router.push(`meals/random/`)
+  }
+
   return (
     <View style={styles.navbar}>
       <TouchableOpacity style={styles.navitem} onPress={handleNavigateToHome}>
         <Text style={styles.navitem}>Accueil</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.navitem} onPress={handleRandomMeal}>
+        <Text style={styles.navitem}>Random Meals</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.navitem} onPress={handleNavigateToMealsList}>
         <Text style={styles.navitem}>Liste Meals</Text>

@@ -1,5 +1,5 @@
 import { Text, TouchableOpacity, View } from "react-native";
-import styles from "../../app/style";
+import styles from "../../style/style";
 import { router } from "expo-router";
 
 export default function Navbar() {

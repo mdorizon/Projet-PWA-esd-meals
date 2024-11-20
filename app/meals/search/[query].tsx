@@ -1,6 +1,6 @@
 import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import styles from "../../style";
-import Navbar from "../../../components/navbar";
+import styles from "@/style/style";
+import Navbar from "@/components/navbar";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 

@@ -8,8 +8,8 @@ export default function Index() {
   const local = useLocalSearchParams()
   const meals = useGetMealsByName(local.query);
 
-  const handleNavigateToSingleMeal = (id: string) => {
-    router.push(`meals/${id}`)
+  const handleNavigateToSingleMeal = (id: Number) => {
+    router.push(`meals/details/${id}`)
   }
 
   return (

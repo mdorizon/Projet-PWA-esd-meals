@@ -2,21 +2,11 @@ import { Image, ScrollView, Text, View } from "react-native";
 import styles from "@/style/style";
 import Navbar from "@/components/navbar";
 import { useLocalSearchParams } from "expo-router";
-import { useEffect, useState } from "react";
+import useGetMealsByID from "@/hook/useGetMealsByID";
 
 export default function Index() {
-  const [meals, setMeals] = useState([]);
   const local = useLocalSearchParams()
-
-  useEffect(() => {
-    (async () => {
-
-      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${local.id}`);
-      const meals = await response.json()
-
-      setMeals(meals.meals[0])
-    })()
-  }, [])
+  const meals = useGetMealsByID(local.id);
 
   return (
     <>

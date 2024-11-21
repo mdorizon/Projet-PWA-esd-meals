@@ -1,24 +1,12 @@
-import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 import styles from "@/style/style";
 import Navbar from "@/components/navbar";
 import { router, useLocalSearchParams } from "expo-router";
-import { useEffect, useState } from "react";
+import useGetMealsByName from "@/hook/useGetMealsByName";
 
 export default function Index() {
-  const [meals, setMeals] = useState([]);
   const local = useLocalSearchParams()
-
-  useEffect(() => {
-    (async () => {
-
-      // Requête api cherchant le mot reçu depuis le formulaire
-      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${local.query}`);
-      const meals = await response.json()
-
-      // une fois les résultats de l'api reçu on l'ajoute au state meals
-      setMeals(meals.meals)
-    })()
-  }, [])
+  const meals = useGetMealsByName(local.query);
 
   const handleNavigateToSingleMeal = (id: string) => {
     router.push(`meals/${id}`)

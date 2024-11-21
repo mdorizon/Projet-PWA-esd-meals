@@ -2,26 +2,13 @@ import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from "reac
 import styles from "@/style/style";
 import Navbar from "@/components/navbar";
 import { router } from "expo-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import useGetMeals from "@/hook/useGetMeals";
 
 export default function Index() {
-  // on déclare le state permettant de retenir nos recettes
-  const [meals, setMeals] = useState([]);
+  const meals = useGetMeals();
   // permet de récupérer la valeur de l'imput de recherche
   const [text, onChangeText] = useState('');
-
-  // on utilise un useEffect pour que la fonction se lance au chargement de l'app
-  useEffect(() => {
-    (async () => {
-
-      // on fetch la liste des recettes à l'API
-      const response = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=');
-      // une fois la réponse reçue on la stocke dans une constante
-      const meals = await response.json()
-      // on utilise le setter du state 'meals' pour y ajouter toutes nos recettes
-      setMeals(meals.meals)
-    })()
-  }, [])
 
   const handleNavigateToSingleMeal = (id: Number) => {
     // le router push ajoute la page donnée en haut de la liste des écrans "actifs" et donc l'affiche

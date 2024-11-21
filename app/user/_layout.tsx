@@ -1,5 +1,4 @@
 import { createDrawerNavigator } from '@react-navigation/drawer'
-import { Text, View } from 'react-native';
 import UserProfile from './profile';
 import UserParameters from './parameters';
 
